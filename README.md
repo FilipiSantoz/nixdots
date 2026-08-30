@@ -1,4 +1,4 @@
-# ![nixsvg](images/nixos.svg) NixOS dotfiles ![nixsvg](images/nixos.svg)
+# <img src="images/nixos.svg" width="26px"> NixOS dotfiles <img src="images/nixos.svg" width="26px">
 
 ## My NixOS system configuration
 
