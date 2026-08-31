@@ -22,6 +22,11 @@
       # User features
 
       # home-manager
+      self.nixosModules.user-dir
+      self.nixosModules.user-packages
+      self.nixosModules.user-git
+      self.nixosModules.user-session
+
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -29,6 +34,7 @@
         home-manager.extraSpecialArgs = {inherit inputs;};
         home-manager.users.santoz = {
           home.stateVersion = "26.05";
+          programs.home-manager.enable = true;
         };
       }
     ];
