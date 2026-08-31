@@ -12,14 +12,14 @@
   perSystem = {
     pkgs,
     lib,
-    self',
     ...
-  }: {
+  }: let
+    noctalia = lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  in {
     packages.lunaNiri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
       settings = {
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
-        # bibata-cursors.path = lib.getExe pkgs.bibata-cursors;
         input = {
           keyboard = {
             xkb = {
@@ -39,6 +39,7 @@
           QT_QPA_PLATFORM = "wayland";
           GDK_BACKEND = "wayland";
         };
+        spawn-at-startup = [noctalia];
         binds = {
           "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
           "Mod+W".close-window = _: {};
@@ -109,15 +110,15 @@
           "Mod+Ctrl+WheelScrollUp".move-column-to-workspace-up = _: {};
 
           # === Noctalia Integration ===
-          "Mod+Shift+S".spawn = ["noctalia" "msg" "screenshot-region" "wlr-screencopy"];
-          "Mod+Space".spawn = ["noctalia" "msg" "panel-toggle" "launcher"];
-          "Mod+S".spawn = ["noctalia" "msg" "panel-toggle" "control-center"];
-          "Mod+C".spawn = ["noctalia" "msg" "settings-toggle"];
-          "Mod+Escape".spawn = ["noctalia" "msg" "panel-toggle" "session"];
-          "XF86AudioRaiseVolume".spawn = ["noctalia" "msg" "volume-up"];
-          "XF86AudioLowerVolume".spawn = ["noctalia" "msg" "volume-down"];
-          "XF86AudioMute".spawn = ["noctalia" "msg" "volume-mute"];
-          "XF86AudioMicMute".spawn = ["noctalia" "msg" "mic-mute"];
+          "Mod+Shift+S".spawn-sh = "${noctalia} msg screenshot-region wlr-screencopy";
+          "Mod+Space".spawn-sh = "${noctalia} msg panel-toggle launcher";
+          "Mod+S".spawn-sh = "${noctalia} msg panel-toggle control-center";
+          "Mod+C".spawn-sh = "${noctalia} msg settings-toggle";
+          "Mod+Escape".spawn-sh = "${noctalia} msg panel-toggle session";
+          "XF86AudioRaiseVolume".spawn-sh = "${noctalia} msg volume-up";
+          "XF86AudioLowerVolume".spawn-sh = "${noctalia} msg volume-down";
+          "XF86AudioMute".spawn-sh = "${noctalia} msg volume-mute";
+          "XF86AudioMicMute".spawn-sh = "${noctalia} msg mic-mute";
 
           # === Media Controls ===
           "XF86AudioPlay".spawn = ["playerctl" "play-pause"];

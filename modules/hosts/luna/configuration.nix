@@ -25,8 +25,8 @@
       # home-manager
       self.nixosModules.user-dir
       self.nixosModules.user-packages
-      self.nixosModules.user-git
-      self.nixosModules.user-session
+      self.nixosModules.fzf
+      self.nixosModules.zsh
 
       inputs.home-manager.nixosModules.home-manager
       {
@@ -36,6 +36,21 @@
         home-manager.users.santoz = {
           home.stateVersion = "26.05";
           programs.home-manager.enable = true;
+          imports = [
+            self.homeManagerModules.user-git
+            self.homeManagerModules.user-session
+            self.homeManagerModules.fetch
+            self.homeManagerModules.firefox
+            self.homeManagerModules.kitty
+            self.homeManagerModules.llama-cpp
+            self.homeManagerModules.noctalia
+            self.homeManagerModules.obs
+            self.homeManagerModules.starship
+            self.homeManagerModules.tmux
+            self.homeManagerModules.yazi
+            self.homeManagerModules.zen
+            self.homeManagerModules.zoxide
+          ];
         };
       }
     ];
