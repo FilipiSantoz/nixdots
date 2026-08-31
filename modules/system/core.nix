@@ -1,13 +1,5 @@
-{
-  self,
-  input,
-  ...
-}: {
-  flake.nixosModules.core = {
-    pkgs,
-    lib,
-    ...
-  }: {
+{...}: {
+  flake.nixosModules.core = {pkgs, ...}: {
     boot.loader = {
       timeout = 15;
 
