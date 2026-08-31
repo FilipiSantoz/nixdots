@@ -1,5 +1,5 @@
 {...}: {
-  flake.nixosModules.fzf = {...}: {
+  flake.homeManagerModules.fzf = {...}: {
     programs.fzf = {
       enable = true;
       enableZshIntegration = true;

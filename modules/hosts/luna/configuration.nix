@@ -25,8 +25,6 @@
       # home-manager
       self.nixosModules.user-dir
       self.nixosModules.user-packages
-      self.nixosModules.fzf
-      self.nixosModules.zsh
 
       inputs.home-manager.nixosModules.home-manager
       {
@@ -41,6 +39,7 @@
             self.homeManagerModules.user-session
             self.homeManagerModules.fetch
             self.homeManagerModules.firefox
+            self.homeManagerModules.fzf
             self.homeManagerModules.kitty
             self.homeManagerModules.llama-cpp
             self.homeManagerModules.noctalia
@@ -50,6 +49,7 @@
             self.homeManagerModules.yazi
             self.homeManagerModules.zen
             self.homeManagerModules.zoxide
+            self.homeManagerModules.zsh
           ];
         };
       }
