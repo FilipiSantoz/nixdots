@@ -20,6 +20,7 @@
       self.nixosModules.users-santoz
 
       # User features
+      self.nixosModules.niri
 
       # home-manager
       self.nixosModules.user-dir
