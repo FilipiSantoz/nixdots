@@ -1,10 +1,10 @@
-{...}: {
-  flake.nixosModules.user-packages = {pkgs, ...}: {
+{ inputs, ... }: {
+  flake.nixosModules.user-packages = { pkgs, ... }: {
     home-manager.sharedModules = [
       {
         home.packages = with pkgs; [
           # Normal Stack
-          ripgrep
+          inputs.Neve.packages.${pkgs.stdenv.hostPlatform.system}.default
           playerctl
           lazygit
           wl-clipboard
@@ -17,9 +17,15 @@
           pi-coding-agent
           shotcut
           gcc
+          gnumake
           hextazy
           rocmPackages.rocm-smi
           btop-rocm
+          tree-sitter
+          glib
+          foliate
+          miro
+          gnome-calculator
         ];
       }
     ];

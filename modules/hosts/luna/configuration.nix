@@ -2,8 +2,9 @@
   self,
   inputs,
   ...
-}: {
-  flake.nixosModules.lunaConfiguration = {...}: {
+}:
+{
+  flake.nixosModules.lunaConfiguration = { ... }: {
     imports = [
       #my Machine Hardware
       self.nixosModules.lunaHardware
@@ -30,7 +31,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {inherit inputs;};
+        home-manager.extraSpecialArgs = { inherit inputs; };
         home-manager.users.santoz = {
           home.stateVersion = "26.05";
           programs.home-manager.enable = true;

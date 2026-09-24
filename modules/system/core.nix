@@ -1,29 +1,32 @@
-{...}: {
-  flake.nixosModules.core = {pkgs, ...}: {
-    boot.loader = {
-      timeout = 15;
+{ ... }: {
+  flake.nixosModules.core = { pkgs, ... }: {
+    boot = {
+      loader = {
+        timeout = 15;
 
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot";
-      grub = {
+        efi.canTouchEfiVariables = true;
+        efi.efiSysMountPoint = "/boot";
+        grub = {
+          enable = true;
+          device = "nodev";
+          efiSupport = true;
+          useOSProber = true;
+          splashImage = ./images/x.png;
+        };
+      };
+      initrd.luks.devices."main".device = "/dev/disk/by-uuid/cc635417-f518-4862-b3bd-fccad35e308d";
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
+
+    networking = {
+      hostName = "lua";
+      networkmanager.enable = true;
+      firewall = {
         enable = true;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-        splashImage = ./images/x.png;
+        allowedTCPPorts = [ 22 ];
+        trustedInterfaces = [ "dcoker0" ];
       };
     };
-    boot.initrd.luks.devices."main".device = "/dev/disk/by-uuid/cc635417-f518-4862-b3bd-fccad35e308d";
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-
-    networking.hostName = "lua";
-    networking.networkmanager.enable = true;
-    networking.firewall = {
-      enable = true;
-      allowedTCPPorts = [22];
-      trustedInterfaces = ["dcoker0"];
-    };
-    services.power-profiles-daemon.enable = true;
 
     time.timeZone = "America/Sao_Paulo";
     i18n.defaultLocale = "pt_BR.UTF-8";
@@ -41,9 +44,12 @@
     console.keyMap = "br-abnt2";
 
     nix.settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
-      extra-substituters = ["https://noctalia.cachix.org"];
+      extra-substituters = [ "https://noctalia.cachix.org" ];
       extra-trusted-public-keys = [
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       ];
@@ -55,14 +61,31 @@
     };
 
     zramSwap.enable = true;
-    services.fstrim.enable = true;
-    services.btrfs.autoScrub = {
-      enable = true;
-      interval = "monthly";
-      fileSystems = ["/"];
+
+    services = {
+      power-profiles-daemon.enable = true;
+      fstrim.enable = true;
+      btrfs.autoScrub = {
+        enable = true;
+        interval = "monthly";
+        fileSystems = [ "/" ];
+      };
     };
 
-    environment.systemPackages = with pkgs; [neovim git curl bat jq wget unzip eza fd];
+    environment.systemPackages = with pkgs; [
+      nano
+      git
+      curl
+      bat
+      jq
+      wget
+      unzip
+      eza
+      fd
+      fzf
+      ripgrep
+      coreutils
+    ];
 
     system.stateVersion = "26.05";
   };

@@ -1,5 +1,5 @@
-{...}: {
-  flake.homeManagerModules.kitty = {...}: {
+{ ... }: {
+  flake.homeManagerModules.kitty = { ... }: {
     programs.kitty = {
       enable = true;
       themeFile = "Catppuccin-Macchiato";
@@ -22,6 +22,11 @@
         background = "#24273A";
         selection_foreground = "#24273A";
         selection_background = "#F4DBD6";
+
+        # Cursor animation
+        cursor_trail = "3";
+        cursor_trail_decay = "0.1 0.4";
+        cursor_trail_start_threshold = "2";
 
         # Cursor colors
         cursor = "#F4DBD6";

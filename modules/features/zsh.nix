@@ -1,12 +1,12 @@
-{...}: {
-  flake.homeManagerModules.zsh = {...}: {
+{ ... }: {
+  flake.homeManagerModules.zsh = { ... }: {
     programs.zsh = {
       enable = true;
       autocd = true;
       enableCompletion = true;
       autosuggestion = {
         enable = true;
-        strategy = ["history"];
+        strategy = [ "history" ];
       };
       syntaxHighlighting.enable = true;
       history = {

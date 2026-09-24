@@ -1,5 +1,5 @@
-{...}: {
-  flake.nixosModules.user-dir = {...}: {
+{ ... }: {
+  flake.nixosModules.user-dir = { ... }: {
     home-manager.sharedModules = [
       {
         xdg.userDirs = {
