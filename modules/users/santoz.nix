@@ -37,7 +37,20 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
-    programs.zsh.enable = true;
+    virtualisation.libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+      };
+    };
+
+    programs = {
+      zsh.enable = true;
+      virt-manager.enable = true;
+      appimage.enable = true;
+    };
 
     users.users.santoz = {
       isNormalUser = true;
@@ -50,6 +63,7 @@
         "input"
         "docker"
         "render"
+        "libvirtd"
       ];
     };
 
