@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeManagerModules.firefox = {...}: {
+  flake.homeModules.firefox = {...}: {
     programs.firefox = {
       enable = true;
       profiles.default = {

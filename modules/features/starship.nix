@@ -1,5 +1,5 @@
-{...}: {
-  flake.homeManagerModules.starship = {...}: {
+{ ... }: {
+  flake.homeModules.starship = { ... }: {
     programs.starship = {
       enable = true;
       enableZshIntegration = true;
@@ -12,7 +12,7 @@
         hostname = {
           ssh_only = false;
           format = "[$hostname]($style)";
-          style = "bold #FFFFFF";
+          style = "bold #c87df0";
           disabled = false;
         };
 
@@ -22,7 +22,7 @@
         };
 
         character = {
-          error_symbol = "[🗶](bold #FFFFFF)";
+          error_symbol = "[🗶](bold #e64c7e)";
           success_symbol = "[🢖](bold #FFFFFF)";
           vimcmd_symbol = "[🢔](bold #FFFFFF)";
         };
@@ -30,7 +30,7 @@
         directory = {
           truncation_length = 2;
           truncation_symbol = "…/";
-          repo_root_style = "bold #9D71C9";
+          repo_root_style = "bold #fa92d6";
           style = "bold #FFFFFF";
           repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) ";
           read_only = " 󰌾";
@@ -42,7 +42,7 @@
 
         git_status = {
           format = "[$all_status]($style)";
-          style = "cyan";
+          style = "#94eaf7";
           ahead = "⇡\${count} ";
           diverged = "⇕⇡\${ahead_count}⇣\${behind_count} ";
           behind = "⇣\${count} ";

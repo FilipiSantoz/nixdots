@@ -1,5 +1,5 @@
-{...}: {
-  flake.homeManagerModules.user-session = {...}: {
+{ ... }: {
+  flake.homeModules.user-session = { ... }: {
     home.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";

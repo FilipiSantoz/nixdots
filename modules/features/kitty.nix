@@ -1,5 +1,5 @@
 { ... }: {
-  flake.homeManagerModules.kitty = { ... }: {
+  flake.homeModules.kitty = { ... }: {
     programs.kitty = {
       enable = true;
       themeFile = "Catppuccin-Macchiato";

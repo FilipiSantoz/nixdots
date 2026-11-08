@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.flake.homeManagerModules = lib.mkOption {
+  options.flake.homeModules = lib.mkOption {
     type = lib.types.attrsOf lib.types.deferredModule;
     default = { };
   };

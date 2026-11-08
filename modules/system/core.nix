@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.core = { pkgs, ... }: {
+  flake.nixosModules.core = { pkgs, lib, ... }: {
     boot = {
       loader = {
         timeout = 15;
@@ -11,20 +11,19 @@
           device = "nodev";
           efiSupport = true;
           useOSProber = true;
-          splashImage = ./images/x.png;
+          splashImage = ./images/j.png;
         };
       };
-      initrd.luks.devices."main".device = "/dev/disk/by-uuid/cc635417-f518-4862-b3bd-fccad35e308d";
       kernelPackages = pkgs.linuxPackages_latest;
     };
 
     networking = {
-      hostName = "lua";
+      hostName = lib.mkDefault "serez";
       networkmanager.enable = true;
       firewall = {
         enable = true;
         allowedTCPPorts = [ 22 ];
-        trustedInterfaces = [ "dcoker0" ];
+        trustedInterfaces = [ "docker0" ];
       };
     };
 
@@ -44,16 +43,13 @@
     console.keyMap = "br-abnt2";
 
     nix.settings = {
+      auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      auto-optimise-store = true;
-      extra-substituters = [ "https://noctalia.cachix.org" ];
-      extra-trusted-public-keys = [
-        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-      ];
     };
+
     nix.gc = {
       automatic = true;
       dates = "weekly";

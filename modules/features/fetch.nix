@@ -1,6 +1,6 @@
-{...}: {
-  flake.homeManagerModules.fetch = {inputs, ...}: {
-    imports = [inputs.areofyl-fetch.homeManagerModules.default];
+{ inputs, ... }: {
+  flake.homeModules.fetch = { ... }: {
+    imports = [ inputs.areofyl-fetch.homeManagerModules.default ];
 
     programs.fetch = {
       enable = true;

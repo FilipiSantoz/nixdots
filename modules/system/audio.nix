@@ -8,7 +8,6 @@
         support32Bit = true;
       };
       wireplumber.enable = true;
-      jack.enable = true;
       pulse.enable = true;
       audio.enable = true;
     };

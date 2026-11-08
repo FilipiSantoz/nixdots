@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, lib, ... }: {
   flake.nixosModules.compositor = { pkgs, ... }: {
     security.polkit.enable = true;
 
@@ -6,7 +6,7 @@
       enable = true;
       settings.default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${
-          self.packages.${pkgs.stdenv.hostPlatform.system}.lunaNiri
+          self.packages.${pkgs.stdenv.hostPlatform.system}.serezNiri
         }/bin/niri-session";
         user = "greeter";
       };
@@ -17,7 +17,7 @@
       xdgOpenUsePortal = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config = {
-        niri.default = [ "gtk" ];
+        niri.default = lib.mkForce [ "gtk" ];
         common.default = [ "gtk" ];
       };
     };

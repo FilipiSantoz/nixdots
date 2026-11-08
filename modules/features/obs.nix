@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeManagerModules.obs = {pkgs, ...}: {
+  flake.homeModules.obs = {pkgs, ...}: {
     programs.obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [

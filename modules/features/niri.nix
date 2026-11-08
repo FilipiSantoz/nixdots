@@ -7,7 +7,7 @@
   flake.nixosModules.niri = { pkgs, ... }: {
     programs.niri = {
       enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.lunaNiri;
+      package = self.packages.${pkgs.stdenv.hostPlatform.system}.serezNiri;
     };
   };
   perSystem =
@@ -20,7 +20,7 @@
       noctalia = lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
     in
     {
-      packages.lunaNiri = inputs.wrapper-modules.wrappers.niri.wrap {
+      packages.serezNiri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
         settings = {
           xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
@@ -45,13 +45,14 @@
           };
           spawn-at-startup = [ noctalia ];
           binds = {
-            "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
+            "Mod+Return".spawn-sh = lib.getExe pkgs.ghostty;
+            "Mod+G".spawn-sh = lib.getExe pkgs.kitty;
             "Mod+W".close-window = _: { };
-            "Mod+N".spawn-sh = "${lib.getExe pkgs.kitty} nvim";
+            "Mod+N".spawn-sh = "${lib.getExe pkgs.ghostty} nvim";
             "Mod+B".spawn-sh = "zen-beta";
             "Mod+X".spawn-sh = "audacious";
             "Mod+Shift+E".quit = _: { };
-            "Mod+Y".spawn-sh = "${lib.getExe pkgs.kitty} yazi";
+            "Mod+Y".spawn-sh = "${lib.getExe pkgs.ghostty} yazi";
 
             # === LAYOUT CONTROLS ===
             "Mod+R".switch-preset-column-width = _: { };
@@ -91,8 +92,8 @@
             "Mod+Ctrl+Right".move-column-right = _: { };
             "Mod+Ctrl+Up".move-window-up = _: { };
             "Mod+Ctrl+Down".move-window-down = _: { };
-            "Mod+Ctrl+L".move-column-left = _: { };
-            "Mod+Ctrl+H".move-column-right = _: { };
+            "Mod+Ctrl+H".move-column-left = _: { };
+            "Mod+Ctrl+L".move-column-right = _: { };
             "Mod+Ctrl+K".move-window-up = _: { };
             "Mod+Ctrl+J".move-window-down = _: { };
 
@@ -149,16 +150,16 @@
 
             focus-ring = {
               on = _: { };
-              width = 2;
-              active-color = "#F4F2F7";
+              width = 1.2;
+              active-color = "#EF3F62";
             };
 
-            shadow = {
-              on = _: { };
-              color = "#00000070";
-              softness = 22;
-              spread = 8;
-            };
+            # shadow = {
+            #   on = _: { };
+            #   color = "#00000070";
+            #   softness = 22;
+            #   spread = 8;
+            # };
             preset-column-widths = [
               { proportion = 0.333333; }
               { proportion = 0.500000; }
@@ -187,10 +188,28 @@
               draw-border-with-background = false;
             }
             {
+              matches = [ { app-id = "^com.mitchellh.ghostty"; } ];
+              draw-border-with-background = false;
+            }
+            {
               matches = [
                 { app-id = "^firefox"; }
               ];
               open-maximized = true;
+            }
+            {
+              matches = [
+                { app-id = "^zen-beta"; }
+              ];
+              open-maximized = true;
+            }
+            {
+              matches = [ { app-id = "^lire-audio"; } ];
+              draw-border-with-background = false;
+              open-floating = true;
+              default-window-height = {
+                proportion = 0.2;
+              };
             }
           ];
           layer-rules = [

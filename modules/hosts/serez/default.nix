@@ -4,11 +4,11 @@
   ...
 }:
 {
-  flake.nixosConfigurations.luna = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.serez = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = { inherit inputs; };
     modules = [
-      self.nixosModules.lunaConfiguration
+      self.nixosModules.serezConfiguration
     ];
   };
 }

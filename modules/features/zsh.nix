@@ -1,5 +1,5 @@
 { ... }: {
-  flake.homeManagerModules.zsh = { ... }: {
+  flake.homeModules.zsh = { ... }: {
     programs.zsh = {
       enable = true;
       autocd = true;
@@ -24,7 +24,8 @@
         la = "eza -a --icons --group-directories-first";
         lt = "eza --tree --icons";
         lla = "eza -lah --icons --group-directories-first";
-        nixrebuild = "sudo nixos-rebuild switch --flake ~/luaNix/nix#lua";
+        nixrebuild = "sudo nixos-rebuild switch --flake ~/nixdots#serez";
+        nixclean = "nix-collect-garbage -d";
       };
 
       initContent = ''

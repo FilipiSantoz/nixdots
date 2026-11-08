@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeManagerModules.tmux = {pkgs, ...}: {
+  flake.homeModules.tmux = {pkgs, ...}: {
     programs.tmux = {
       enable = true;
 

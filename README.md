@@ -1,6 +1,6 @@
 # <img src="images/nixos.svg" width="26px"> NixOS dotfiles <img src="images/nixos.svg" width="26px">
 
-## My NixOS system configuration
+## NixOS system
 
 ```
 ⠀⠀    Niri / Noctalia
@@ -11,7 +11,7 @@
  ├─ Shell   -> Zsh
  ╰─ Resource Monitor -> Btop
  ╭─ WM       -> Niri
- ├─ Terminal -> Kitty
+ ├─ Terminal -> Ghostty
  ├─ Theme    -> Catppuccin
  ├─ Icons    -> Bibata
  ╰─ Desktop Shell -> Noctalia

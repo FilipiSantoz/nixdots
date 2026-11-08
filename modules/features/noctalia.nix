@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.homeManagerModules.noctalia = {...}: {
+  flake.homeModules.noctalia = {...}: {
     imports = [inputs.noctalia.homeModules.default];
 
     programs.noctalia = {
