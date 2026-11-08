@@ -29,7 +29,7 @@
         ];
 
         font-family = "DepartureMono Nerd Font";
-        background-opacity = 0.94;
+        background-opacity = 0.90;
         background-blur = true;
         title = "Ghostty";
         window-decoration = "none";

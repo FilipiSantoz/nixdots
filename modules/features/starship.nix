@@ -12,26 +12,26 @@
         hostname = {
           ssh_only = false;
           format = "[$hostname]($style)";
-          style = "bold #c87df0";
+          style = "bold #e3f2ff";
           disabled = false;
         };
 
         os = {
           disabled = false;
-          style = "#FFFFFF";
+          style = "#e3f2ff";
         };
 
         character = {
           error_symbol = "[🗶](bold #e64c7e)";
-          success_symbol = "[🢖](bold #FFFFFF)";
-          vimcmd_symbol = "[🢔](bold #FFFFFF)";
+          success_symbol = "[🢖](bold #e2f2ff)";
+          vimcmd_symbol = "[🢔](bold #e2f2ff)";
         };
 
         directory = {
           truncation_length = 2;
           truncation_symbol = "…/";
           repo_root_style = "bold #fa92d6";
-          style = "bold #FFFFFF";
+          style = "bold #e2f2ff";
           repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) ";
           read_only = " 󰌾";
         };
