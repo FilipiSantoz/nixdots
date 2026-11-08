@@ -6,6 +6,7 @@
       BROWSER = "zen-beta";
       GDK_BACKEND = "wayland";
       QT_QPA_PLATFORM = "wayland";
+      GTK_IM_MODULE = "simple";
       MOZ_ENABLE_WAYLAND = "1";
     };
   };

@@ -12,7 +12,7 @@
  ╰─ Resource Monitor -> Btop
  ╭─ WM       -> Niri
  ├─ Terminal -> Ghostty
- ├─ Theme    -> Catppuccin
+ ├─ Theme    -> Duskfox
  ├─ Icons    -> Bibata
  ╰─ Desktop Shell -> Noctalia
 
