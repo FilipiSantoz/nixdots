@@ -115,13 +115,13 @@
             "Mod+Ctrl+WheelScrollUp".move-column-to-workspace-up = _: { };
 
             # === Noctalia Integration ===
-            "Mod+Shift+S".spawn-sh = "${noctalia} msg screenshot-region wlr-screencopy";
+            "Mod+Shift+S".spawn-sh = "${noctalia} msg screenshot-region";
             "Mod+Space".spawn-sh = "${noctalia} msg panel-toggle launcher";
             "Mod+S".spawn-sh = "${noctalia} msg panel-toggle control-center";
             "Mod+C".spawn-sh = "${noctalia} msg settings-toggle";
             "Mod+Escape".spawn-sh = "${noctalia} msg panel-toggle session";
-            "XF86AudioRaiseVolume".spawn-sh = "${noctalia} msg volume-up";
-            "XF86AudioLowerVolume".spawn-sh = "${noctalia} msg volume-down";
+            "XF86AudioRaiseVolume".spawn-sh = "${noctalia} msg volume-up 2";
+            "XF86AudioLowerVolume".spawn-sh = "${noctalia} msg volume-down 2";
             "XF86AudioMute".spawn-sh = "${noctalia} msg volume-mute";
             "XF86AudioMicMute".spawn-sh = "${noctalia} msg mic-mute";
 
