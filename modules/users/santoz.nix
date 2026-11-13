@@ -26,9 +26,42 @@
       self.homeModules.zsh
     ];
 
-    programs.git.settings.user = {
-      name = "FilipiSantoz";
-      email = "239681201+FilipiSantoz@users.noreply.github.com";
+    programs = {
+      ssh = {
+        enable = true;
+        enableDefaultConfig = false;
+        settings = {
+          "github.com" = {
+            hostname = "github.com";
+            user = "git";
+            identityFile = "~/.ssh/id_ed25519";
+            identitiesOnly = true;
+          };
+          "gitlab.com" = {
+            hostname = "gitlab.com";
+            user = "git";
+            identityFile = "~/.ssh/id_gitlab";
+            identitiesOnly = true;
+          };
+        };
+      };
+    };
+
+    programs.git = {
+      settings.user = {
+        name = "FilipiSantoz";
+        email = "239681201+FilipiSantoz@users.noreply.github.com";
+      };
+      includes = [
+        {
+          condition = "hasconfig:remote.*.url:git@gitlab.com:**";
+          contents.user = {
+            name = "FilipiSantoz";
+            email = "44389097-FilipiSantoz@users.noreply.gitlab.com";
+          };
+        }
+
+      ];
     };
   };
 

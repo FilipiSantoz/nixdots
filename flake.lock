@@ -9,11 +9,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1794507896,
-        "narHash": "sha256-rICWytTusT93UyA9obEIlJtI1AAJotFQ463TKVi2MF0=",
+        "lastModified": 1794529331,
+        "narHash": "sha256-zvTmSX5ep0Ge5/2AyTbmYtAn6RDvVxNsXItyVQioIQo=",
         "owner": "FilipiSantoz",
         "repo": "Neve",
-        "rev": "614429fa7ac8fee97526879df894ea73e2169fdf",
+        "rev": "ade3e0a643299c01d8fc4b7bdfa1203646ee6a48",
         "type": "github"
       },
       "original": {
@@ -277,11 +277,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794499611,
-        "narHash": "sha256-TfYWXx/stcWuJIS61ud0nIxdq+sKd9CK7a5Oy+P5aCU=",
+        "lastModified": 1794524251,
+        "narHash": "sha256-1rkK7fugXNp/E/nMBheA6ULkx6qVhSZ4zB0yQF1ZLbQ=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "b487b30fb1bd8e0fa73a26ec8546272b0cb5b124",
+        "rev": "2efc332640c35dbff2aea0f9993702e38fba4d6a",
         "type": "github"
       },
       "original": {
