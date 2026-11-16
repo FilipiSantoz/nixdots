@@ -21,10 +21,6 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    areofyl-fetch = {
-      url = "github:areofyl/fetch";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

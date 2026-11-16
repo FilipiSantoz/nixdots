@@ -9,7 +9,7 @@
       self.homeModules.user-dir
       self.homeModules.user-packages
       self.homeModules.user-session
-      self.homeModules.fetch
+      self.homeModules.fastfetch
       self.homeModules.firefox
       self.homeModules.fzf
       self.homeModules.ghostty

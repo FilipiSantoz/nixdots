@@ -10,7 +10,6 @@
       lazygit
       wl-clipboard
       lm_sensors
-      fastfetch
       opencode
       audacious
       chromium
